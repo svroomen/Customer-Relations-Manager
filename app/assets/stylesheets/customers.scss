@@ -12,3 +12,10 @@
 .customer-element-margin {
   margin-bottom: 15px;
 }
+
+.customer-col-md-4 {
+  @extend .col-md-4;
+  padding-right: 0;
+  padding-left: 0;
+  margin-bottom: 10px;
+}

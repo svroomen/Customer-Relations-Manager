@@ -1,0 +1,5 @@
+- @customers.each_slice(3) do |three_customers|
+  .row
+    - three_customers.each do |customer|
+      .col-md-4
+        = render :partial => 'customers/customer.html.haml', :object => customer, :as => :customer

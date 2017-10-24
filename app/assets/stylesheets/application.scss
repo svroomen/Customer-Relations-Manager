@@ -19,14 +19,10 @@
 
 .basic_link {
   text-decoration: underline;
+  font-size: 14px;
 }
 
-.container {
+.finder-layout-container {
+  @extend .container;
   width: 980px;
-}
-
-.col-md-4 {
-  padding-right: 0;
-  padding-left: 0;
-  margin-bottom: 10px;
 }

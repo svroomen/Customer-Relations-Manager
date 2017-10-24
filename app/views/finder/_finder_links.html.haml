@@ -1,0 +1,11 @@
+%p
+  = link_to 'New Customer', new_customer_path, :class => 'basic_link'
+  - unless params[:action] == 'missing_email'
+    = ' - '
+    = link_to 'Missing Emails', missing_emails_path, :class => 'basic_link'
+  - unless params[:action] == 'alphabetized'
+    = ' - '
+    = link_to 'Alphabetized', alphabetized_path, :class => 'basic_link'
+  - unless params[:action] == 'index'
+    = ' - '
+    = link_to 'All Customers', finder_path, :class => 'basic_link'
