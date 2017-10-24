@@ -12,8 +12,10 @@
   %strong Image:
   = @customer.image
 %p
+  %strong Province:
+  = @customer.province.nil? ? 'None' : @customer.province.name
+%p
   %strong Notes:
   = @customer.notes
-= link_to 'Edit', edit_customer_path(@customer)
-|
-= link_to 'Back', customers_path
+= link_to 'Edit', edit_customer_path(@customer), :class => 'btn btn-primary'
+= link_to 'Back', customers_path, :class => 'btn btn-default'

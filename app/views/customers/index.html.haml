@@ -12,6 +12,7 @@
       %th Phone number
       %th Email address
       %th Image
+      %th Province
       %th Notes
       %th.text-center{:width => '4%'}
   %tbody
@@ -21,6 +22,7 @@
         %td= customer.phone_number
         %td= customer.email_address
         %td= customer.image
+        %td= customer.province.nil? ? 'None' : customer.province.name
         %td= customer.notes
         %td
           .dropdown

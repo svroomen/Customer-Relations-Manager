@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :load_provinces, :only => [:edit, :new, :update, :destroy, :create]
 
   # GET /customers
   # GET /customers.json
@@ -70,6 +71,10 @@ class CustomersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_params
-    params.require(:customer).permit(:full_name, :phone_number, :email_address, :image, :notes)
+    params.require(:customer).permit(:full_name, :phone_number, :email_address, :image, :notes, :province_id)
+  end
+
+  def load_provinces
+    @provinces = Province.order(:name)
   end
 end

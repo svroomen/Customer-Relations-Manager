@@ -19,3 +19,8 @@
   padding-left: 0;
   margin-bottom: 10px;
 }
+
+.customer-form {
+  @extend .form-horizontal;
+  width: 500px;
+}

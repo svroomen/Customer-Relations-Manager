@@ -1,26 +1,34 @@
-= form_with(model: customer, local: true) do |form|
-  - if customer.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(customer.errors.count, "error")
-        prohibited this customer from being saved:
-      %ul
-        - customer.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :full_name
-    = form.text_field :full_name, id: :customer_full_name
-  .field
-    = form.label :phone_number
-    = form.text_field :phone_number, id: :customer_phone_number
-  .field
-    = form.label :email_address
-    = form.text_field :email_address, id: :customer_email_address
-  .field
-    = form.label :image
-    = form.text_field :image, id: :customer_image
-  .field
-    = form.label :notes
-    = form.text_area :notes, id: :customer_notes
-  .actions
-    = form.submit
+.row-fluid
+  .col-md-12
+    = form_with(model: customer, local: true, :html => { :class => 'customer-form'}) do |form|
+      - if customer.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(customer.errors.count, "error")
+            prohibited this customer from being saved:
+          %ul
+            - customer.errors.full_messages.each do |message|
+              %li= message
+      .form-group
+        = form.label :full_name
+        = form.text_field :full_name, id: :customer_full_name, :class => 'form-control'
+      .form-group
+        = form.label :phone_number
+        = form.text_field :phone_number, id: :customer_phone_number, :class => 'form-control'
+      .form-group
+        = form.label :email_address
+        = form.text_field :email_address, id: :customer_email_address, :class => 'form-control'
+      .form-group
+        = form.label :image
+        = form.text_field :image, id: :customer_image, :class => 'form-control'
+      .form-group
+        = form.label :province_id
+        = form.collection_select :province_id, @provinces, :id, :name, :prompt => true, :class => 'form-control'
+      .form-group
+        = form.label :notes
+        = form.text_area :notes, id: :customer_notes, :class => 'form-control'
+      .form-group
+        = form.submit :class => 'btn btn-primary'
+        - unless customer.new_record?
+          = link_to 'Show', customer, :class => 'btn btn-default'
+        = link_to 'Back', customers_path, :class => 'btn btn-default'
