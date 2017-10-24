@@ -1,0 +1,26 @@
+= form_with(model: customer, local: true) do |form|
+  - if customer.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(customer.errors.count, "error")
+        prohibited this customer from being saved:
+      %ul
+        - customer.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :full_name
+    = form.text_field :full_name, id: :customer_full_name
+  .field
+    = form.label :phone_number
+    = form.text_field :phone_number, id: :customer_phone_number
+  .field
+    = form.label :email_address
+    = form.text_field :email_address, id: :customer_email_address
+  .field
+    = form.label :image
+    = form.text_field :image, id: :customer_image
+  .field
+    = form.label :notes
+    = form.text_area :notes, id: :customer_notes
+  .actions
+    = form.submit

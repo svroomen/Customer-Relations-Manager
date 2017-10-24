@@ -1,0 +1,22 @@
+.col-md-4
+  .col-md-12.customer-container
+    %p
+      .pull-right
+        = link_to 'edit', edit_customer_path(customer), :class => 'basic_link'
+        = link_to 'x', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'basic_link'
+    %h2.customer-header-margin= customer.full_name
+    = image_tag "#{customer.image}", :size => '90x120', :class => 'customer-element-margin'
+    - unless customer.phone_number.blank?
+      %p
+        %strong Phone:
+        = customer.phone_number
+    - unless customer.email_address.blank?
+      %p
+        %strong Email:
+        = customer.email_address
+    - unless customer.notes.blank?
+      %p
+        %strong Notes:
+        = customer.notes
+
+

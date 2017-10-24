@@ -1,3 +1,14 @@
 // Place all the styles related to the Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.customer-container {
+  @extend .table-bordered;
+  box-shadow: 1px 1px 1px#000000;
+  height: 375px;
+  width: 300px;
+}
+
+.customer-element-margin {
+  margin-bottom: 15px;
+}
